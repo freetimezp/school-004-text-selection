@@ -1,18 +1,268 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#f7f0e6" />
+        <meta
+            name="description"
+            content="Learn CSS ::selection, custom text selection colors, and accessible accent palettes."
+        />
+        <title>004 — Custom Text Selection</title>
+        <link rel="stylesheet" href="./assets/css/style.css" />
+    </head>
+    <body>
+        <header class="topbar">
+            <a class="brand" href="./">TYPE<span>STUDY</span></a>
+            <span class="lesson-count">LESSON 004 / 1000</span>
+            <a
+                class="previous-link"
+                href="https://freetimezp.github.io/school-003-text-highlight/"
+            >
+                Previous lesson ↗
+            </a>
+        </header>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Project</title>
-</head>
+        <main>
+            <section class="hero">
+                <div class="hero-copy">
+                    <p class="eyebrow">CSS DETAIL / BIG PERSONALITY</p>
+                    <h1>Select your<br />own <span>style.</span></h1>
+                    <p class="hero-description">
+                        A tiny interaction. A whole new feeling. Customize the
+                        colors people see when they select your text.
+                    </p>
+                    <a href="#experiment" class="primary-link">
+                        Enter the selection lab <span>↓</span>
+                    </a>
+                </div>
 
-<body>
-    start
+                <div class="hero-art" aria-hidden="true">
+                    <div class="art-ring ring-one"></div>
+                    <div class="art-ring ring-two"></div>
+                    <div class="art-card">
+                        <span>THE POWER OF TYPE</span>
+                        <strong>Pick<br />your<br /><em>words.</em></strong>
+                        <div class="art-line"></div>
+                        <span>STUDY NO. 004</span>
+                    </div>
+                    <span class="art-index">COLOR / 004</span>
+                </div>
+            </section>
 
-    <script src="./assets/js/main.js"></script>
-</body>
+            <section class="intro-strip">
+                <span class="strip-number">01</span>
+                <p>
+                    Text selection is a small part of the browser experience.
+                    With one pseudo-element, you can make it feel like your
+                    design.
+                </p>
+                <code>::selection</code>
+            </section>
 
+            <section class="lesson-section" id="experiment">
+                <div class="section-heading">
+                    <p class="eyebrow">02 / THE EXPERIMENT</p>
+                    <h2>Try it with your own eyes.</h2>
+                    <p>
+                        Choose a palette, then select the words below using your
+                        mouse or keyboard. The selection colors will update
+                        instantly.
+                    </p>
+                </div>
+
+                <div class="lab-layout">
+                    <div class="selection-canvas">
+                        <div class="canvas-topline">
+                            <span>FIELD NOTES / 004</span>
+                            <span class="live-indicator">LIVE PREVIEW</span>
+                        </div>
+
+                        <article class="selectable-content">
+                            <p class="article-kicker">A NOTE ON CREATIVITY</p>
+                            <h3>
+                                Make the ordinary feel
+                                <span>extraordinary.</span>
+                            </h3>
+                            <p>
+                                Every detail contributes to the experience. From
+                                the rhythm of a paragraph to the color that
+                                appears when someone selects a sentence,
+                                thoughtful design turns small interactions into
+                                memorable moments.
+                            </p>
+                            <p>
+                                <strong>Try selecting this paragraph.</strong>
+                                Highlight a few words, an entire sentence, or
+                                everything. Notice how the selected text changes
+                                with your chosen palette.
+                            </p>
+                            <p class="article-signature">
+                                A LITTLE DETAIL. A BIG DIFFERENCE.
+                            </p>
+                        </article>
+                    </div>
+
+                    <aside class="palette-panel">
+                        <p class="eyebrow">CHOOSE YOUR INK</p>
+                        <h3>Color moods.</h3>
+
+                        <div
+                            class="palette-options"
+                            role="group"
+                            aria-label="Selection color palettes"
+                        >
+                            <button
+                                class="palette-button active"
+                                type="button"
+                                data-palette="plum"
+                                aria-pressed="true"
+                            >
+                                <span class="swatches" aria-hidden="true">
+                                    <i></i><i></i>
+                                </span>
+                                <span class="palette-name">Plum & Coral</span>
+                                <span class="palette-check">✓</span>
+                            </button>
+
+                            <button
+                                class="palette-button"
+                                type="button"
+                                data-palette="ocean"
+                                aria-pressed="false"
+                            >
+                                <span class="swatches" aria-hidden="true">
+                                    <i></i><i></i>
+                                </span>
+                                <span class="palette-name">Ocean & Ice</span>
+                                <span class="palette-check">✓</span>
+                            </button>
+
+                            <button
+                                class="palette-button"
+                                type="button"
+                                data-palette="citrus"
+                                aria-pressed="false"
+                            >
+                                <span class="swatches" aria-hidden="true">
+                                    <i></i><i></i>
+                                </span>
+                                <span class="palette-name">Citrus & Ink</span>
+                                <span class="palette-check">✓</span>
+                            </button>
+
+                            <button
+                                class="palette-button"
+                                type="button"
+                                data-palette="rose"
+                                aria-pressed="false"
+                            >
+                                <span class="swatches" aria-hidden="true">
+                                    <i></i><i></i>
+                                </span>
+                                <span class="palette-name">Rose & Wine</span>
+                                <span class="palette-check">✓</span>
+                            </button>
+                        </div>
+
+                        <div class="color-readout">
+                            <div>
+                                <span>TEXT COLOR</span>
+                                <code id="textColorValue">#FFFFFF</code>
+                            </div>
+                            <div>
+                                <span>SELECTION BG</span>
+                                <code id="selectionColorValue">#6C3B65</code>
+                            </div>
+                        </div>
+
+                        <p class="panel-note">
+                            Selection styling applies when you select text. It
+                            doesn't change the text's normal appearance.
+                        </p>
+                    </aside>
+                </div>
+
+                <div class="code-card">
+                    <div class="code-card-heading">
+                        <span>THE CSS BEHIND IT</span>
+                        <span class="code-language">CSS</span>
+                    </div>
+
+                    <pre><code id="cssOutput">::selection {color: #ffffff;background-color: #6c3b65;}</code></pre>
+
+                    <button id="copyCode" class="copy-button" type="button">
+                        Copy CSS ↗
+                    </button>
+
+                    <p
+                        id="copyStatus"
+                        class="copy-status"
+                        aria-live="polite"
+                    ></p>
+                </div>
+            </section>
+
+            <section class="lesson-section principles">
+                <div class="section-heading">
+                    <p class="eyebrow">03 / THE ESSENTIALS</p>
+                    <h2>Small syntax.<br />Clear purpose.</h2>
+                </div>
+
+                <div class="principle-grid">
+                    <article class="principle-card">
+                        <span class="principle-number">01</span>
+                        <code>::selection</code>
+                        <h3>Target the selection.</h3>
+                        <p>
+                            The double colon introduces a pseudo-element that
+                            styles the portion of text selected by the user.
+                        </p>
+                    </article>
+
+                    <article class="principle-card">
+                        <span class="principle-number">02</span>
+                        <code>color</code>
+                        <h3>Set readable text.</h3>
+                        <p>
+                            Choose the foreground color of selected text. Pair
+                            it carefully with the background.
+                        </p>
+                    </article>
+
+                    <article class="principle-card">
+                        <span class="principle-number">03</span>
+                        <code>background-color</code>
+                        <h3>Choose the accent.</h3>
+                        <p>
+                            Give the selected area its own color. Keep the
+                            contrast high enough for easy reading.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="mini-example">
+                <p class="eyebrow">04 / YOUR FIRST RULE</p>
+                <h2>One rule changes the feeling.</h2>
+                <pre><code>::selection {color: #ffffff;background-color: #6c3b65;}</code></pre>
+                <p>
+                    Select this text, then return to the palette lab and try
+                    another combination.
+                </p>
+            </section>
+
+            <footer class="footer">
+                <a class="brand" href="./">TYPE<span>STUDY</span></a>
+                <span>HTML LEARNING ROADMAP / 004</span>
+                <a
+                    href="https://freetimezp.github.io/school-003-text-highlight/"
+                >
+                    Lesson 003 ↗
+                </a>
+            </footer>
+        </main>
+
+        <script type="module" src="./assets/js/main.js"></script>
+    </body>
 </html>
